@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{7740D887-6977-462A-ADA2-F7D1FADE6108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{7740D887-6977-462A-ADA2-F7D1FADE6108}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringUtilsLibrary", "StringUtilsLibrary\StringUtilsLibrary.csproj", "{2F96A489-1B58-4C57-BD6D-3E012272D5AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringUtilsLibrary", "StringUtilsLibrary\StringUtilsLibrary.csproj", "{2F96A489-1B58-4C57-BD6D-3E012272D5AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringUtilsLibrary.Tests", "StringUtilsLibrary.Tests\StringUtilsLibrary.Tests.csproj", "{9FB0BC0C-177C-43C5-8EE3-5124C9263F9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringUtilsLibrary.Tests", "StringUtilsLibrary.Tests\StringUtilsLibrary.Tests.csproj", "{9FB0BC0C-177C-43C5-8EE3-5124C9263F9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

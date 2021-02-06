@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace StringUtilsLibrary
 {
     public static class Patterns
     {
         /*
-         * find patterns based on window size only, i.e. no whitelists/blacklists
+         * find patterns based on fixed size only, assuming ASCII str input
          * returns only patterns bigger than 1, or an empty list if none
          * 
          * Some inspirational material
@@ -19,7 +20,7 @@ namespace StringUtilsLibrary
         public static List<KeyValuePair<string, int>> GetPatternList(string inputString, int patternLength)
         {
             // basic validation:
-            // input string should not be empty
+            // input string should not be empty and should be ... ASCII?? let's check this =)
             // patternLength should be greater than 0 and less/equal than inputString.Length
 
             if (string.IsNullOrEmpty(inputString)) throw new ArgumentException("Could not be null or empty", "inputString");
@@ -31,7 +32,9 @@ namespace StringUtilsLibrary
 
             for (int i = 0; i < (inputString.Length - patternLength) + 1; i++)
             {
-                var slice = new string(inputString.AsSpan(i, patternLength));
+                // TODO: check - Do we need UTF8 support ?? 
+                var inputStringASCII = Encoding.ASCII.GetString(Encoding.ASCII.GetBytes(inputString));
+                var slice = new string(inputStringASCII.AsSpan(i, patternLength));
 
                 if (slicesDict.TryGetValue(slice, out int patternCount))
                 {

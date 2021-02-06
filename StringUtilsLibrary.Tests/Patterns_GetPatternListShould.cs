@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -85,6 +85,22 @@ namespace StringUtilsLibrary.Tests
 
             //Assert
             Assert.Empty(patternList);
+        }
+        
+        [Fact]
+        public void GetPatternList_EmoticonInputString_ShouldReturnASCIICount_ArgumentException()
+        {
+            //Arrange
+            string inputString = "😱😱A😱😱2";
+            int patternLength = 2;
+
+            //Act
+            List<KeyValuePair<string, int>> patternList = Patterns.GetPatternList(inputString, patternLength);
+
+            //Assert
+            Assert.Single(patternList);
+            Assert.Equal("??", patternList[0].Key);
+            Assert.Equal(6, patternList[0].Value);
         }
     }
 }
