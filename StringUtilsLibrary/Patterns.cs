@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 
 namespace StringUtilsLibrary
 {
@@ -32,18 +33,22 @@ namespace StringUtilsLibrary
             var slicesDict = new Dictionary<string, int>();
             var resultList = new List<KeyValuePair<string, int>>();
             var inputStringInfo = new StringInfo(inputString); //Dirty-fix to UTF8 strings
+            var slice = new StringBuilder(inputStringInfo.LengthInTextElements);
 
             for (int i = 0; i < (inputStringInfo.LengthInTextElements - patternLength) + 1; i++)
             {
-                var slice = inputStringInfo.SubstringByTextElements(i, patternLength);
-                if (slicesDict.TryGetValue(slice, out int patternCount))
+                slice.Append(inputStringInfo.SubstringByTextElements(i, patternLength));
+                
+                if (slicesDict.TryGetValue(slice.ToString(), out int patternCount))
                 {
-                    slicesDict[slice] = patternCount + 1;
+                    slicesDict[slice.ToString()] = patternCount + 1;
                 }
                 else
                 {
-                    slicesDict.Add(slice, 1);
+                    slicesDict.Add(slice.ToString(), 1);
                 }
+
+                slice.Clear();
             }
 
             resultList = slicesDict.Where(p => p.Value > 1).ToList();
