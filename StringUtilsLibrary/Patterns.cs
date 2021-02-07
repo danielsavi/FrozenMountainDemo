@@ -26,7 +26,7 @@ namespace StringUtilsLibrary
             // input string should not be empty
             // patternLength should be greater than 0 and less/equal than inputString.Length
 
-            if (string.IsNullOrEmpty(inputString)) throw new ArgumentException("Could not be null or empty", "inputString");
+            if (string.IsNullOrEmpty(inputString)) throw new ArgumentException("Should not be null or empty", "inputString");
             if (patternLength <= 0) throw new ArgumentException("Should be greater than 0", "patternLength");
             if (patternLength > inputString.Length) throw new ArgumentException("Should be less or equal than inputString.Length", "patternLength");
 

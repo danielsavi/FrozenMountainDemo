@@ -21,7 +21,7 @@ namespace StringUtilsLibrary.Tests
             var ex = Assert.Throws<ArgumentException>(() => Patterns.GetPatternList(inputString, patternLength));
 
             //Assert
-            Assert.Equal("Could not be null or empty (Parameter 'inputString')", ex.Message);
+            Assert.Equal("Should not be null or empty (Parameter 'inputString')", ex.Message);
         }
 
         [Fact]
