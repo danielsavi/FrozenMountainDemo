@@ -88,7 +88,7 @@ namespace StringUtilsLibrary.Tests
         }
         
         [Fact]
-        public void GetPatternList_EmoticonInputString_ShouldReturnASCIICount_ArgumentException()
+        public void GetPatternList_UnicodeInputString_ShouldReturnOneItemsOnList()
         {
             //Arrange
             string inputString = "😱😱A😱😱2";
@@ -99,8 +99,8 @@ namespace StringUtilsLibrary.Tests
 
             //Assert
             Assert.Single(patternList);
-            Assert.Equal("??", patternList[0].Key);
-            Assert.Equal(6, patternList[0].Value);
+            Assert.Equal("😱😱", patternList[0].Key);
+            Assert.Equal(2, patternList[0].Value);
         }
     }
 }
